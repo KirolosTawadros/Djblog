@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Post
+from .models import Post,Category
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = ['title','draft']
@@ -13,3 +13,4 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Post,ProductAdmin)
+admin.site.register(Category)
