@@ -11,6 +11,7 @@ class Category(models.Model):
     
     def __str__(self):
         return self.name
+    
 
 class Post(models.Model):
     auth = models.ForeignKey(User,related_name='post_author',on_delete= models.CASCADE)
@@ -25,3 +26,12 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post,related_name='comment_post',on_delete=models.CASCADE)
+    user = models.ForeignKey(User,related_name='comment_user',on_delete=models.CASCADE)
+    comment = models.TextField(max_length=300)
+    created_at = models.DateTimeField(default=timezone.now)
+    
+    def __str__(self):
+        return str(self.post)
