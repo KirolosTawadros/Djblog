@@ -1,0 +1,16 @@
+
+
+
+
+<h4>
+    Blog
+</h4>
+
+<ul> 
+    {% for post in posts %}
+        <li> {{post}} -- {{post.auth}} -- {{post.publish_date}} </li>
+            
+    
+        {% endfor %}
+
+</ul>
