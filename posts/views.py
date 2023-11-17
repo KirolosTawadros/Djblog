@@ -9,11 +9,14 @@ from .models import Post
 #     return render(request,'posts/post_list.html',context)#      :template
 
 # Class Based View CBV::
-from django.views.generic import ListView
+from django.views.generic import ListView,DetailView
 class PostList(ListView):               #context: model_list,object_list
     model = Post                        #Template: model_action-->post_list
 
-def post_detail(request,post_id):
-    data = Post.objects.get(id = post_id)
-    context = {'posts':data}
-    return render (request,'posts/post_detail.html',context) 
+# def post_detail(request,post_id):
+#     data = Post.objects.get(id = post_id)
+#     context = {'posts':data}
+#     return render (request,'posts/post_detail .html',context) 
+
+class PostDetail(DetailView):
+    model = Post
