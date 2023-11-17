@@ -18,12 +18,12 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
-from posts.views import post_list,post_detail
+from posts.views import post_detail,PostList      #post_list
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('posts/',post_list),
+    path('posts/',PostList.as_view()),
     path('posts/<int:post_id>',post_detail),
     path('summernote/', include('django_summernote.urls')),
 ]
