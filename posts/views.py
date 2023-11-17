@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 from .models import Post
 from .forms import PostForm
 
@@ -29,7 +29,10 @@ def create_post(request):
     if request.method == 'POST':
         form = PostForm(request.POST,request.FILES)
         if form.is_valid():
-            form.save()
+            myform = form.save(commit=False)
+            myform.auth = request.user
+            myform.save()
+            return redirect('/posts/')
     else:
         form = PostForm()
     
