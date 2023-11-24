@@ -1,9 +1,23 @@
 
 
-<h3> {{post}} </h3>
+<h3> {{posts}} </h3>
 
-<p>{{post.auth}}</p>
-<p>{{post.publish_date}}</p>
-<p>{{post.content|safe}}</p>
+<p>{{posts.auth}}</p>
+<p>{{posts.publish_date}}</p>
+<p>{{posts.content|safe}}</p>
 
 <img src="{{post.image.url}}" alt="">
+
+
+
+<h4>Comments</h4>
+<ul>
+    {% for comment in comments%}
+    <li>
+        {{comment.user}}---{{comment.comment}}
+    {% empty %}
+     <li>No comments Yet</li>   
+    </li>
+    
+    {% endfor %}
+</ul>

@@ -18,14 +18,14 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
-from posts.views import PostDetail,PostList,create_post,edit_post,delete_post      #post_list   post_detail
+from posts.views import post_detail,post_list,create_post,edit_post,delete_post      #post_list   post_detail
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('posts/',PostList.as_view()),
+    path('posts/',post_list),
     path('posts/new',create_post),
-    path('posts/<int:pk>',PostDetail.as_view()),
+    path('posts/<int:pk>',post_detail),
     path('posts/<int:pk>/edit',edit_post),
     path('posts/<int:pk>/delete',delete_post),
     path('summernote/', include('django_summernote.urls')),
