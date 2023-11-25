@@ -16,8 +16,13 @@
     <li>
         {{comment.user}}---{{comment.comment}}
     {% empty %}
-     <li>No comments Yet</li>   
+    <li>No comments Yet</li>   
     </li>
     
     {% endfor %}
 </ul>
+<form method="Post">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="Save">
+</form>
