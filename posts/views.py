@@ -18,7 +18,9 @@ def post_detail(request,pk):
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
-            form.save()
+            myform = form.save(commit=False)
+            myform.post = data
+            myform.save()
     else:
         form = CommentForm()        
         

@@ -24,14 +24,14 @@ from posts.api import post_list_api
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('posts/',post_list),
-    path('posts/new',create_post),
-    path('posts/<int:pk>',post_detail),
-    path('posts/<int:pk>/edit',edit_post),
-    path('posts/<int:pk>/delete',delete_post),
+    path('posts/new/',create_post),
+    path('posts/<int:pk>/',post_detail),
+    path('posts/<int:pk>/edit/',edit_post),
+    path('posts/<int:pk>/delete/',delete_post),
     path('summernote/', include('django_summernote.urls')),
     
     
-    path('posts/api',post_list_api),
+    path('posts/api/',post_list_api),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
