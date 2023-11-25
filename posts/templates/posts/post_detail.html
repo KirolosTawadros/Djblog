@@ -1,4 +1,4 @@
-
+{% load bootstrap5 %}
 
 <h3> {{posts}} </h3>
 
@@ -23,6 +23,6 @@
 </ul>
 <form method="Post">
     {% csrf_token %}
-    {{form}}
-    <input type="submit" value="Save">
+    {% bootstrap_form form %}
+    {% bootstrap_button button_type='submit' content='add comment' %}
 </form>
